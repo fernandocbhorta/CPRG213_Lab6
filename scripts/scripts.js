@@ -1,4 +1,4 @@
-/****************** YOUR NAME: 
+/****************** YOUR NAME: FERNANDO HORTA
 
 The instructions describe the missing logic that is needed; you will translate these into JavaScript in the places indicated.
 
@@ -11,8 +11,8 @@ You are encouraged to use the provided naming convention for ease of review.
 
 // INSERT YOUR CODE HERE
 
-var modelName = "XYZ"
-var duration = 0
+var modelName = "XYZ";
+var duration = 0;
 
 
 
@@ -29,12 +29,15 @@ var duration = 0
 // INSERT YOUR CODE HERE
 
 function recalculate() {
+    var total_cost = 0;
+    let costLabel = document.getElementById("calculated-cost");
     if(modelName == "XYZ") {
-        // change modelname to cprg; change text to cprg, change duration, etc
+        total_cost = duration * 100;
     }
     else {
-        
+        total_cost = duration * 213;
     }
+    costLabel.innerHTML = total_cost;
 }
 
 
@@ -50,11 +53,23 @@ function recalculate() {
     - if modelName is currently "CPRG", change the value of modelName to "XYZ", and change the innerHTML of the model-text span element to "Model XYZ"
     - then, recalculate() the total cost.
 - finally, uncomment the following line of JavaScript to have this function run automatically whenever the pseudo-button is clicked: */
-    // modelButton.addEventListener("click", changeModel);
+
 
 // INSERT YOUR CODE HERE
 
+let modelButton = document.getElementById('model-button');
 
+function changeModel() {
+    if(modelName == "XYZ") {
+        modelName = "CPRG";
+        document.getElementById('model-text').innerHTML = 'Model CPRG';
+    }
+    else {
+        modelName = "XYZ";
+        document.getElementById('model-text').innerHTML = 'Model XYZ';
+    }
+    recalculate();
+}
 
 
 
@@ -73,5 +88,14 @@ function recalculate() {
 
 // INSERT YOUR CODE HERE
 
+let durationButton = document.getElementById('duration-button');
 
+function changeDuration() {
+    let durationLabel = document.getElementById('duration-text');
+    duration = window.prompt('Enter a new duration');
+    durationLabel.innerHTML = duration;
+    recalculate();
+}
 
+durationButton.addEventListener("click", changeDuration);
+modelButton.addEventListener("click", changeModel);
