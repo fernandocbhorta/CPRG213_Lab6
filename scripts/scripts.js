@@ -57,7 +57,7 @@ function recalculate() {
 
 // INSERT YOUR CODE HERE
 
-let modelButton = document.getElementById('model-button');
+var modelButton = document.getElementById('model-button');
 
 function changeModel() {
     if(modelName == "XYZ") {
@@ -88,7 +88,7 @@ function changeModel() {
 
 // INSERT YOUR CODE HERE
 
-let durationButton = document.getElementById('duration-button');
+var durationButton = document.getElementById('duration-button');
 
 function changeDuration() {
     let durationLabel = document.getElementById('duration-text');
